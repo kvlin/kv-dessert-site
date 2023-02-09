@@ -1,0 +1,38 @@
+#footer-container {
+    background-image: url(../../footer-background-marble.png);
+    margin-top:5rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#footer-container .row {
+    min-height: 100%;
+}
+
+.media-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+.sqsrte-small {
+    margin-bottom: 0px;
+}
+
+.media-group,
+#footer-container .nav-link{
+    width:fit-content;
+    margin: 0 auto;
+}
+
+#footer-container .nav-link:hover{
+    color:var(--main-theme-color);
+}
+@media screen and (max-width: 991px){
+
+    #nav-logo-footer {
+     display:none
+    }
+  }

@@ -1,0 +1,148 @@
+nav {
+  padding-bottom: 0px !important;
+  
+}
+.nav-shadow {
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+}
+
+#nav-logo{
+    height: 8rem;
+    padding: 0 0;
+    margin-right: 160px;
+  
+  }
+
+.nav-brand {
+  margin-left: 1rem !important ;
+}
+
+#my-cool-gradient {
+  --color-stop-1: #f7df5a;
+  --color-stop-3: #f82258;
+  --color-stop-4: rgb(204, 65, 174);
+  --color-stop-6: #405DE6;
+}
+
+svg {
+  margin-bottom: 5px;
+  width: 2rem;
+}
+
+
+#ins-svg:hover{
+
+  fill:var(--main-theme-color)
+  /* fill: url(#my-cool-gradient); */
+
+}
+
+#ins-svg-dark:hover{
+
+  /* fill:var(--main-theme-color) */
+  fill: url(#my-cool-gradient);
+
+}
+
+ #test{
+
+    background-image: linear-gradient(45deg, #F77737, #F56040,#FD1D1D,#E1306C,#C13584,#833AB4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
+
+  #facebook-svg:hover {
+
+    fill:var(--main-theme-color) !important
+    /* color: 	#4267B2 !important; */
+
+  }
+
+  #facebook-svg-dark:hover {
+
+    /* fill:var(--main-theme-color) !important */
+    fill: 	#4267B2 !important;
+
+  }
+  
+ /* #facebook-link:hover {
+    color: 	#4267B2 !important;
+  } */
+  #navbarToggle ul li a{
+  position: relative;
+}
+
+
+#internal-links li a:after{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: var(--main-theme-color);
+  height: 2px;
+}
+
+
+#navbarToggle ul li a:before,
+#navbarToggle ul li a:after {
+    transition: all .3s;
+}
+
+
+#navbarToggle ul li a:hover:after {
+  width: 100%;
+}
+
+
+
+
+
+
+/* mobile view */
+@media only screen and (max-width: 991px) {
+    .navbar-toggler,
+    #nav-logo{
+      height: 6rem;
+      margin: 0 2rem;
+      padding: 0;
+    }
+
+
+    #navbarToggle ul li a:hover:after {
+      width: 14%;
+    }
+    .media-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+}
+
+@media only screen and (max-width: 423px) {
+  
+  #nav-logo{
+    margin-right: 0;
+  }
+  .navbar-toggler{
+      margin: 0 1rem;
+      padding: 0;
+  }
+}
+@media only screen and (max-width: 1199px) {
+
+
+
+  }
+
+@media only screen and (max-width: 1249px) {
+
+
+}
+

@@ -1,0 +1,74 @@
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 6rem;
+    height: 6rem;
+    margin: -8px 0 0 -7px;
+    border: 0.4rem solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 0.4rem solid var(--main-theme-color);
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+
+  .galleryImgStyle {
+    max-width: 300px;
+  }
+
+  /* .jumbotron {
+    color: white;
+    background-image: url("../../components/assets/images/jumbo-bg-img3.PNG");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 10vh;
+    
+  } */
+  .jumbotron {
+    position: relative;
+    color: white;
+    height: 30vh;
+    max-height: 350px;
+    background-image: url("../../components/assets/images/cupcakes-bg5.png");
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 4rem auto;
+
+  }
+  
+  .ve {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -ms-transform: translateX(45%);
+    transform: translateX(45%);
+    text-align: center;
+    
+  }
+  
+
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+/* screen width when navbar toggle first appear --> 991px */
+@media screen and (max-width: 991px){
+  .jumbotron {
+    margin: 1rem auto;
+    max-height: 200px;
+  }
+  
+}
