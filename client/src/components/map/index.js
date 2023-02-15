@@ -12,12 +12,12 @@ const containerStyle = {
 const center = {
   lat: -33.8776191058,
   lng: 151.2034
-  , 
+  ,
 };
 
 // To hide map details
-const mapStyles ={
-  styles:[
+const mapStyles = {
+  styles: [
     {
       "featureType": "landscape",
       "stylers": [
@@ -75,20 +75,20 @@ function MyComponent() {
   return (
     <LoadScript
       googleMapsApiKey={process.env.REACT_APP_MAP_API_KEY}
-      
+
     >
       <GoogleMap
         options={mapStyles}
         mapContainerStyle={containerStyle}
         center={center}
         zoom={16}
-        
+
       >
-        { /* Child components, such as markers, info windows, etc. */ }
+        { /* Child components, such as markers, info windows, etc. */}
         <Marker position={center} icon={logoMarker} />
         <></>
       </GoogleMap>
-      
+
     </LoadScript>
   )
 }

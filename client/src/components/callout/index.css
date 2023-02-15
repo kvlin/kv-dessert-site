@@ -719,8 +719,8 @@
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 50%;
     display: block;
-    -webkit-transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    -webkit-transition: all 0.3s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: all 0.3s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
    }
    
@@ -734,11 +734,11 @@
     top: 180%;
     width: 160%;
     height: 190%;
-    background-color: var(--second-theme-color);
+    background-color: gray;
     border-radius: 50%;
     display: block;
-    -webkit-transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
-    transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    -webkit-transition: all 0.3s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+    transition: all 0.3s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
     z-index: -1;
    }
    
@@ -749,7 +749,7 @@
    
    .getInTouchBtn:hover:before {
     top: -35%;
-    background-color: var(--second-theme-color);
+    background-color: black;
     -webkit-transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
         -ms-transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
             transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
@@ -757,7 +757,7 @@
    
    .getInTouchBtn:hover:after {
     top: -45%;
-    background-color: var(--second-theme-color);
+    background-color: black;
     -webkit-transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
         -ms-transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
             transform: translateX(-50%) scaleY(1.3) scaleX(0.8);

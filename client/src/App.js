@@ -4,14 +4,18 @@ import './App.css';
 import Home from './pages/Home/index';
 import Testimonials from "./pages/Testimonials/index";
 import Contact from "./pages/Contact/index";
+import Admin from "./pages/Admin/index";
 import NoPage from "./pages/NoPage";
 import Navbar from './components/navbar'
 import Footer from './components/footer'
+import { DndProvider } from "react-dnd";
+import {HTML5Backend} from "react-dnd-html5-backend";
 
 function App() {
   return (
 
 <div className="App">
+<DndProvider backend={HTML5Backend}>
       <Navbar/>
       <div id="site-wrapper">
       <div className="row">
@@ -21,8 +25,9 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
-          <Route exact path="/testimonials" component={Testimonials} />
+          <Route exact path="/testimonials" component={Admin} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/admin" component={Admin} />
           <Route component={NoPage} />
         </Switch>
 
@@ -33,6 +38,7 @@ function App() {
         <Footer id="footer"/>
       </div>
     </div>
+    </DndProvider>
     </div>
    
   );

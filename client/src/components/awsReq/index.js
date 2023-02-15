@@ -9,7 +9,7 @@ const configuration = {
 AWS.config.update(configuration)
 const docClient = new AWS.DynamoDB.DocumentClient()
 
-export async function fetchData  (tableName) {
+export async function fetchProducts  (tableName) {
     
     var params = {
         TableName: tableName
@@ -21,6 +21,7 @@ export async function fetchData  (tableName) {
              console.log(data)
            
         } 
+        
     })
 
     

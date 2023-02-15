@@ -67,7 +67,7 @@ function Home(props) {
               <GalleryList  galleryData={galleryData} styleClass={galleryImgStyle}/> } */}
             
             {galleryLoaded &&  categories.map((cat, index) => (
-               <Animate to="1" from="0.5" attributeName="opacity"><GalleryList key={cat} galleryData={galleryData} category={cat} styleClass={galleryImgStyle}/>
+               <Animate  key={cat} to="1" from="0.5" attributeName="opacity"><GalleryList key={cat} galleryData={galleryData} category={cat} styleClass={galleryImgStyle}/>
               </Animate>
               ))} 
             {galleryLoaded && 
