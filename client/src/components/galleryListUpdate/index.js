@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "./index.css"
-const GalleryList = ({ galleryData, category, styleClass, deleteProduct }) => {
+const GalleryList = ({ galleryData, category, styleClass, deleteProduct, }) => {
     // console.log(galleryData)
     // console.log(category)
     // Initial load
@@ -18,8 +18,7 @@ const GalleryList = ({ galleryData, category, styleClass, deleteProduct }) => {
     const [saveStatus, setSaveStatus] = useState(false)
     const [productOrder, setProductOrder] = useState({})
     const [orderRepeated, setOrderRepeated] = useState(false)
-
-    const [productToDelete, setProductToDelete] = useState()
+    const [productToDelete, setProductToDelete] = useState([])
     // const filteredList = [];
 
 
@@ -38,24 +37,21 @@ const GalleryList = ({ galleryData, category, styleClass, deleteProduct }) => {
         setFilteredProduct(filteredList)
 
 
+
         // setTimeout(() => {
         //     setFilteredProduct(a)
         // }, 3000)
-        const orderObj = galleryData.filter((data) => {
-            if (data.category === category) {
+        // const orderObj = galleryData.filter((data) => {
+        //     if (data.category === category) {
 
-                return { [data.productName]: data.createdAt }
-            }
+        //         return { [data.productName]: data.createdAt }
+        //     }
 
-        })
-        setProductOrder({ ...productOrder, orderObj })
-        console.log(productOrder)
+        // })
+        // setProductOrder({ ...productOrder, orderObj })
+        // console.log(productOrder)
 
     }, [])
-
-    useEffect(() => {
-        console.log(filteredProduct)
-    }, [filteredProduct])
 
     // Show modal on productToDelete state update
     useEffect(() => {
@@ -111,7 +107,7 @@ const GalleryList = ({ galleryData, category, styleClass, deleteProduct }) => {
 
             console.log([...newGalleryData])
             if (newGalleryData.length === 0) {
-                window.location.reload();
+                window.location.reload(); // reload to remove the section/category title when there is no product
 
             } else {
                 setFilteredProduct([...newGalleryData])
@@ -124,11 +120,16 @@ const GalleryList = ({ galleryData, category, styleClass, deleteProduct }) => {
         isInitialMount.current = true;
         setProductToDelete(null)
     }
+
+
+    // // if no product found for a category return nothing
+    // if (filteredProduct.length === 0) return
     return (
+
         <div key={category} className="row d-flex justify-content-center product-section dets ">
             <h2 className="category-title">{category[0].toUpperCase().concat(category.slice(1), 's')}</h2>
-            {filteredProduct && filteredProduct.map(({ productName, createdAt, image, displayIndex, category }) => (
-                <div key={displayIndex} className="col-auto product-details d-flex flex-column" >
+            {filteredProduct && filteredProduct.map(({ productName, createdAt, image, category }) => (
+                <div key={createdAt} className="col-auto product-details d-flex flex-column" >
                     {/* <input data-index={data.displayIndex} type="number" name={data.productName} defaultValue={data.createdAt} onChange={e=>onInputChange(e)}  ></input> */}
                     <div className={"btn btn-danger"} onClick={() => setProductToDelete({ productName, createdAt })}>Delete product</div>
                     <img name={productName} onLoad={() => setImageLoaded(true)}
@@ -137,6 +138,7 @@ const GalleryList = ({ galleryData, category, styleClass, deleteProduct }) => {
 
             ))
             }
+
             {/* {filteredProduct && <div onClick={() => validateChanges()} className='btn btn-success'>Save changes</div>} */}
             <Modal show={show} onHide={modalClose}>
                 <Modal.Header closeButton>
@@ -154,6 +156,7 @@ const GalleryList = ({ galleryData, category, styleClass, deleteProduct }) => {
             </Modal>
             {/* <ProductSectioning/> */}
         </div>
+
     )
 }
 
