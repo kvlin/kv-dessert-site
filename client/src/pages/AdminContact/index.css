@@ -1,0 +1,71 @@
+address {
+    padding-left: 1rem;
+    text-align: left;
+    font-size: larger;
+}
+
+.smooth-image {
+    transition: opacity 0.2s;
+  }
+  .image-visible {
+    opacity: 1;
+  }
+  .image-hidden {
+    opacity: 0;
+  }
+  
+  .image-shadow {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+
+#mapURL {
+    padding-right: 1rem;
+    margin: 0;
+    float: right;
+    
+}
+
+#mapButton {
+    display: none;
+}
+/* #mapButton :hover {
+    background-color: #fff !important;
+} */
+
+#mapURL img {
+    min-width: 400px;
+    width: 23vw;
+}
+
+/* screen width when navbar toggle first appear --> 991px */
+@media screen and (max-width: 991px){
+    address {
+        text-align: center;
+        padding-left: 0rem;
+    }
+    #mapURL img{
+        display: none;
+    }
+    /* #mapURL svg{
+        display: block;
+        float: none;
+        padding:0;
+        font-size:1rem;
+      } */
+      #mapButton {
+        display: block;
+        float: none;
+        width:fit-content;
+        margin:0 auto;
+
+    }
+    #mapButton svg{
+        margin-top: 5px;
+    }
+    #mapURL {
+        padding-right: 0px;
+        float: none;
+    }
+    
+}    
+  

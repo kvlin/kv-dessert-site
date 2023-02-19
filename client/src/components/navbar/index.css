@@ -9,8 +9,8 @@ nav {
 #nav-logo{
     height: 8rem;
     padding: 0 0;
-    margin-right: 160px;
-  
+    /* margin-right: 187px;  */
+  margin-right: 22px;
   }
 
 .nav-brand {

@@ -43,11 +43,13 @@ const Admin = () => {
 
     const fetchCategories = async () => {
       try {
-        const res = await fetch('/api/allCategories');
+        const res = await fetch('/api/settings');
         const jsonData = await res.json();
-        console.log(jsonData[0].values)
-        setCategories(jsonData[0].values)
-
+        jsonData.forEach(d => {
+          if (d.configs == "categories") {
+            setCategories(d.values)
+          }
+        })
       } catch (error) {
         console.log(error);
       }

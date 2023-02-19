@@ -31,7 +31,7 @@ router.get('/allProducts', (req, res) => {
 })
 
 // Route to retrieve all categories
-router.get('/allCategories', (req, res) => {
+router.get('/settings', (req, res) => {
     const params = {
         TableName: configTable
     };
@@ -45,9 +45,9 @@ router.get('/allCategories', (req, res) => {
         }
     })
 })
+
 // Add new category in to array
 router.post('/addCategory', async (req, res) => {
-    console.log("_______@@@@@@@@@@@@@@", req.body.values)
     const params = {
         TableName: configTable,
         Item: {
@@ -163,5 +163,7 @@ router.post('/deleteCategory', async (req, res) => {
     //         console.log(err);
     //     });
 });
+
+
 
 module.exports = router;
