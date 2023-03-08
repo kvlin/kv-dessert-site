@@ -4,9 +4,10 @@ import jumboBgImg from "../../components/assets/images/jumbo-bg-img2.PNG"
 import GalleryList from '../../components/galleryList';
 import Callout from '../../components/callout';
 import Animate from 'react-smooth'
-
 import { Container, Row, Col } from 'react-bootstrap';
 import './index.css'
+import Testimonials from '../../components/testimonials';
+import TestimonialCard from '../../components/testimonials';
 function Home(props) {
 
   const galleryImgStyle = "galleryImgStyle"
@@ -16,6 +17,7 @@ function Home(props) {
   const [galleryData, setGalleryData] = useState(false);
   const [galleryLoaded, setGalleryLoaded] = useState(false);
   const [categories, setCategories] = useState([]);
+  const [testimonialsData, setTestimonialData] = useState([]);
   useEffect(() => {
     const uniqueCategories = new Set();
     const fetchProducts = async () => {
@@ -37,7 +39,8 @@ function Home(props) {
       }
     }
 
-    const fetchCategories = async () => {
+
+    const fetchSettings = async () => {
       try {
         const res = await fetch('/api/settings');
         const jsonData = await res.json();
@@ -46,6 +49,9 @@ function Home(props) {
           if (d.configs == "categories") {
             setCategories(d.values)
           }
+          if (d.configs == "testimonials") {
+            setTestimonialData(d.values)
+          }
         })
 
       } catch (error) {
@@ -53,7 +59,8 @@ function Home(props) {
       }
     }
     fetchProducts();
-    fetchCategories();
+    fetchSettings();
+
 
   }, []);
 
@@ -85,6 +92,8 @@ function Home(props) {
       ))}
       {galleryLoaded &&
         <Callout style={{ maxWidth: "945px", display: "block", margin: "1.5rem auto" }} />}
+      {galleryLoaded &&
+        <Testimonials testimonials={testimonialsData} />}
 
     </div>
   );

@@ -1,0 +1,29 @@
+  .card {
+   
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+  .testimonial-card {
+    border:none !important;
+    padding: 2rem;
+  }
+  .carousel-control-prev-icon{
+    margin-right: 8rem;
+  }
+  .carousel-control-next-icon{
+    margin-left: 8rem;
+  }
+
+  .carousel-inner {
+    padding: 2rem 3rem;
+  }
+  /* screen width when navbar toggle first appear --> 991px */
+@media screen and (max-width: 991px){
+    .carousel-control-prev-icon{
+        margin-right: 0rem;
+      }
+      .carousel-control-next-icon{
+        margin-left: 0rem;
+      }
+    
+    
+  }
