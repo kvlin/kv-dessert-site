@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ContactDetailsExpand from '../contactDetailsExpand';
-const ContactDetails = ({ contactDetails, order }) => {
+import ContactDetailsExpandInput from '../contactDetailsExpandInput';
+const ContactDetailsEditForm = ({ contactDetails, order }) => {
     console.log(Object.keys(contactDetails))
     console.log(order)
     const tempContactObj = {};
@@ -16,7 +16,7 @@ const ContactDetails = ({ contactDetails, order }) => {
             {tempContactObj && Object.keys(tempContactObj).map((heading, i) => (
                 <div key={heading}>
                     <strong>{heading[0].toUpperCase().concat(heading.slice(1), ":")}</strong>
-                    <ContactDetailsExpand heading={heading} contactDetailsData={tempContactObj[heading]} />
+                    <ContactDetailsExpandInput heading={heading} contactDetailsData={tempContactObj[heading]} />
                 </div>
 
             ))}
@@ -24,4 +24,4 @@ const ContactDetails = ({ contactDetails, order }) => {
     );
 };
 
-export default ContactDetails;
+export default ContactDetailsEditForm;

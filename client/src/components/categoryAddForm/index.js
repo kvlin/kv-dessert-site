@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import "./index.css"
 const CategoryAddForm = ({ categories }) => {
-    console.log(categories)
     const [newCategory, setNewCategory] = useState()
 
     const handleFormSubmit = (event) => {

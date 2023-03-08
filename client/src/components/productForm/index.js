@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./index.css"
 const ProductForm = ({ categories }) => {
     const [formState, setFormState] = useState({
@@ -7,6 +7,9 @@ const ProductForm = ({ categories }) => {
     });
     const [characterCount, setCharacterCount] = useState(0);
     const [categoryOption, setCategoryOption] = useState("")
+    useEffect(() => {
+        setFormState({ ...formState, category: categories[0] })
+    }, [categories])
     // update state based on form input changes
     const handleChange = (event) => {
 
@@ -75,38 +78,40 @@ const ProductForm = ({ categories }) => {
             {/* <p className={`m-0 ${characterCount === 280 ? "text-error" : ""}`}>
                 Character Count: {characterCount}/280
             </p> */}
-            <form
-                className="flex-row justify-center justify-space-between-md align-stretch"
-                onSubmit={handleFormSubmit}
-            >
-                <input
-                    placeholder="Name"
-                    name="productName"
-                    value={formState.productName}
-                    className="form-input col-6 "
-                    onChange={handleChange}
-                ></input>
-                <select value={formState.category}
-                    placeholder="category"
-                    name="category"
-                    className="form-input col-6 "
-                    onChange={handleChange}
+            {categories &&
+                <form
+                    className="flex-row justify-center justify-space-between-md align-stretch"
+                    onSubmit={handleFormSubmit}
                 >
-                    {categories && categories.map(category =>
-                        <option key={category} value={category}>{category}</option>
-                    )}
-                </select>
-                <label className="form-input col-12  p-1">
-                    Upload product image:
-                    <input type="file" ref={fileInput} className="form-input p-2" />
-                    <button className="btn" onClick={handleImageUpload} type="submit">
-                        Upload
+                    <input
+                        placeholder="Name"
+                        name="productName"
+                        value={formState.productName}
+                        className="form-input col-6 "
+                        onChange={handleChange}
+                    ></input>
+                    <select value={formState.category}
+                        placeholder="category"
+                        name="category"
+                        className="form-input col-6 "
+                        onChange={handleChange}
+                    >
+                        {categories.map((category) =>
+                            <option key={category} value={category}>{category}</option>
+                        )}
+                    </select>
+                    <label className="form-input col-12  p-1">
+                        Upload product image:
+                        <input type="file" ref={fileInput} className="form-input p-2" />
+                        <button className="btn" onClick={handleImageUpload} type="submit">
+                            Upload
+                        </button>
+                    </label>
+                    <button className="btn col-6 " type="submit">
+                        Add product
                     </button>
-                </label>
-                <button className="btn col-6 " type="submit">
-                    Add product
-                </button>
-            </form>
+                </form>
+            }
         </div>
     );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 //import Map from '../../components/map'
 import mapScreenshot from "../../components/map/Screenshot.PNG"
-import ContactDetails from '../../components/contactDetails';
+import ContactDetailsEditForm from '../../components/contactDetailsEditForm';
 import "./index.css"
 import { useState } from 'react';
 
@@ -40,7 +40,7 @@ function Contact(props) {
             <div className="col">
                 <div className="row d-flex flex-lg-row-reverse ">
                     <div className="col-lg-6">
-                        <ContactDetails contactDetails={contactDetails} order={contactDetailsOrder} />
+                        <ContactDetailsEditForm contactDetails={contactDetails} order={contactDetailsOrder} />
                     </div>
                     <div id="map-col" className="col-lg-6">
                         <a id="mapURL" href="https://www.google.com/maps/place/Hunan+Spicy+Cuisine/@-33.8772038,151.2019861,17.25z/data=!3m1!5s0x6b12ae24b28b67d3:0xcd1054a116d9bc25!4m5!3m4!1s0x6b12af1bfd9f2a87:0xcf33cd9a86b2e067!8m2!3d-33.8776753!4d151.2033832" target="_blank" rel="noopener noreferrer">

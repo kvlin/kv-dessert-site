@@ -61,7 +61,7 @@ const GalleryListUncategorized = ({ uncategorized, styleClass, deleteProduct }) 
         <div className="row d-flex justify-content-center product-section dets ">
 
 
-            {updatedProducts.length > 0 && <h2 className="uncategorized-title">Uncategorized</h2>}
+            {updatedProducts.length > 0 && <h2 className="uncategorized-title">Uncategorized (hidden from public view)</h2>}
 
             {updatedProducts && updatedProducts.map(({ productName, createdAt, image, category }) => (
                 <div key={createdAt} className="col-auto product-details d-flex flex-column" >
