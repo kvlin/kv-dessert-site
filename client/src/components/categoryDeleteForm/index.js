@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import "./index.css"
 const CategoryAdd = ({ categories }) => {
-    console.log(categories)
     const [currentCategory, setCurrentCategory] = useState()
 
     const handleFormSubmit = (event) => {

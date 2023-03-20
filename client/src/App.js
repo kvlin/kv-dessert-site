@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home/index';
-import Testimonials from "./pages/Testimonials/index";
 import AdminContact from "./pages/AdminContact/index";
 import Contact from "./pages/Contact/index";
 import Admin from "./pages/AdminMain/index";

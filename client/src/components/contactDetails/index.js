@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ContactDetailsExpand from '../contactDetailsExpand';
 const ContactDetails = ({ contactDetails, order }) => {
     console.log(Object.keys(contactDetails))

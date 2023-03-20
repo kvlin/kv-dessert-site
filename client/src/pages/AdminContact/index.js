@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 //import Map from '../../components/map'
 import mapScreenshot from "../../components/map/Screenshot.PNG"
 import ContactDetailsEditForm from '../../components/contactDetailsEditForm';
 import "./index.css"
-import { useState } from 'react';
 
 function Contact(props) {
-    const [imageLoaded, setImageLoaded] = React.useState(false);
-    const [contactDetails, setContactDetails] = React.useState("")
-    const [contactDetailsOrder, setContactDetailsOrder] = React.useState(false)
+    const [imageLoaded, setImageLoaded] = useState(false);
+    const [contactDetails, setContactDetails] = useState("")
+    const [contactDetailsOrder, setContactDetailsOrder] = useState(false)
     useEffect(() => {
         const fetchContactDetailsAndOrder = async () => {
             try {

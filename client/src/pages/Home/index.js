@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import slideExample from "../../components/assets/images/slide-example.PNG"
-import jumboBgImg from "../../components/assets/images/jumbo-bg-img2.PNG"
 import GalleryList from '../../components/galleryList';
 import Callout from '../../components/callout';
 import Animate from 'react-smooth'
-import { Container, Row, Col } from 'react-bootstrap';
+
 import './index.css'
 import Testimonials from '../../components/testimonials';
-import TestimonialCard from '../../components/testimonials';
+
 function Home(props) {
 
   const galleryImgStyle = "galleryImgStyle"
@@ -19,15 +17,13 @@ function Home(props) {
   const [categories, setCategories] = useState([]);
   const [testimonialsData, setTestimonialData] = useState([]);
   useEffect(() => {
-    const uniqueCategories = new Set();
+    
     const fetchProducts = async () => {
       try {
         const res = await fetch('/api/allProducts');
         const jsonData = await res.json();
         // sort the array by createdAt property ordered by descending values
         const data = jsonData.sort((a, b) => (a.createdAt < b.createdAt) ? 1 : -1);
-        console.log(data)
-
         // const allCategories = data.forEach(d => { uniqueCategories.add(d.category) })
         // setCategories(Array.from(uniqueCategories))
 
@@ -44,12 +40,11 @@ function Home(props) {
       try {
         const res = await fetch('/api/settings');
         const jsonData = await res.json();
-        console.log(jsonData)
         jsonData.forEach(d => {
-          if (d.configs == "categories") {
+          if (d.configs === "categories") {
             setCategories(d.values)
           }
-          if (d.configs == "testimonials") {
+          if (d.configs === "testimonials") {
             setTestimonialData(d.values)
           }
         })
@@ -86,14 +81,13 @@ function Home(props) {
               <GalleryList  galleryData={galleryData} styleClass={galleryImgStyle}/> } */}
 
       {galleryLoaded && categories.map((cat, index) => (
-        <Animate key={cat} to="1" from="0.5" attributeName="opacity">
-          <GalleryList key={cat} galleryData={galleryData} category={cat} styleClass={galleryImgStyle} />
-        </Animate>
+        <GalleryList key={cat} galleryData={galleryData} category={cat} styleClass={galleryImgStyle} />
       ))}
       {galleryLoaded &&
-        <Callout style={{ maxWidth: "945px", display: "block", margin: "1.5rem auto" }} />}
-      {galleryLoaded &&
         <Testimonials testimonials={testimonialsData} />}
+      {galleryLoaded &&
+        <Callout style={{ maxWidth: "945px", display: "block", margin: "1.5rem auto" }} />}
+
 
     </div>
   );

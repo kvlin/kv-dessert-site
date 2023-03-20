@@ -1,21 +1,17 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import "./index.css"
 const ProductForm = ({ categories }) => {
     const [formState, setFormState] = useState({
         productName: "",
-        category: "",
+        category: categories[0]
     });
-    const [characterCount, setCharacterCount] = useState(0);
-    const [categoryOption, setCategoryOption] = useState("")
-    useEffect(() => {
-        setFormState({ ...formState, category: categories[0] })
-    }, [categories])
+
+    
     // update state based on form input changes
     const handleChange = (event) => {
 
         if (event.target.value.length <= 280) {
             setFormState({ ...formState, [event.target.name]: event.target.value });
-            setCharacterCount(event.target.value.length);
         }
     };
 
@@ -25,7 +21,6 @@ const ProductForm = ({ categories }) => {
 
         // clear form value
         setFormState({ productName: "", createdAt: "" });
-        setCharacterCount(0);
         const postData = async () => {
             const res = await fetch('/api/addProduct', {
                 method: 'POST',

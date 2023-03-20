@@ -48,9 +48,9 @@ const Header = () => {
             <li className="nav-item">
               <a className="nav-link" style={navLinkStyle} href="/contact">Contact</a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <a className="nav-link" style={navLinkStyle} href="/adminContact">Admin Contact</a>
-            </li>
+            </li> */}
           </ul>
 
 
