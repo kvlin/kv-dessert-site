@@ -31,14 +31,15 @@ const CategoryAddForm = ({ categories }) => {
     }
 
     return (
-        <div id="category-add-form">
+        <div id="category-add-form" className="modern-form">
+            <h4 className="modern-form-title">Add a category</h4>
             <form onSubmit={handleFormSubmit}>
-                <input defaultValue={newCategory}
+                <input placeholder="Name" defaultValue={newCategory}
                     name="category"
                     onChange={(e) => setNewCategory(e.target.value)}
-                    className="form-input col-6 "></input>
-                <button className="btn col-6 " type="submit">
-                    Add category
+                    className="form-input col-8 modern-input" ></input>
+                <button className="btn col-4" style={{ color: 'white', backgroundColor: 'rgb(34, 126, 187)' }} type="submit">
+                    Add
                 </button>
             </form>
         </div >
@@ -47,3 +48,5 @@ const CategoryAddForm = ({ categories }) => {
 };
 
 export default CategoryAddForm;
+
+

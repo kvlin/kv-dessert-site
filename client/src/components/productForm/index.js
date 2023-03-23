@@ -5,8 +5,8 @@ const ProductForm = ({ categories }) => {
         productName: "",
         category: categories[0]
     });
+    const [imageUploaded, setImageUploaded] = useState(false)
 
-    
     // update state based on form input changes
     const handleChange = (event) => {
 
@@ -60,6 +60,7 @@ const ProductForm = ({ categories }) => {
                 const postResponse = await res.json();
                 // Add image URL to the form
                 setFormState({ ...formState, image: postResponse.Location })
+                setImageUploaded(true)
                 console.log("postImage: ", postResponse.Location)
                 return postResponse.Location;
             } catch (error) {
@@ -69,40 +70,41 @@ const ProductForm = ({ categories }) => {
         postImage();
     };
     return (
-        <div id="product-form">
-            {/* <p className={`m-0 ${characterCount === 280 ? "text-error" : ""}`}>
-                Character Count: {characterCount}/280
-            </p> */}
+        <div id="product-form" className="modern-form">
+            <h4 className="modern-form-title">Add a product</h4>
             {categories &&
                 <form
-                    className="flex-row justify-center justify-space-between-md align-stretch"
+                    className="flex-row justify-center justify-space-between-md align-stretch modern-form-inner"
                     onSubmit={handleFormSubmit}
                 >
                     <input
                         placeholder="Name"
                         name="productName"
                         value={formState.productName}
-                        className="form-input col-6 "
+                        className="form-input col-6 modern-input"
                         onChange={handleChange}
                     ></input>
                     <select value={formState.category}
                         placeholder="category"
                         name="category"
-                        className="form-input col-6 "
+                        className="form-input col-6 modern-select"
                         onChange={handleChange}
                     >
                         {categories.map((category) =>
                             <option key={category} value={category}>{category}</option>
                         )}
                     </select>
-                    <label className="form-input col-12  p-1">
-                        Upload product image:
-                        <input type="file" ref={fileInput} className="form-input p-2" />
-                        <button className="btn" onClick={handleImageUpload} type="submit">
-                            Upload
-                        </button>
-                    </label>
-                    <button className="btn col-6 " type="submit">
+                    <div style={{ backgroundColor: "white", borderRadius: "5px" }}>
+                        <label className="form-input col-12  p-1 modern-label">
+                            <strong>Upload product image:</strong>
+                            <input type="file" ref={fileInput} className="form-input p-2 modern-file-input" />
+                            <button className="btn btn-secondary" onClick={handleImageUpload} type="submit">
+                                Upload image
+                            </button>
+                        </label>
+                    </div>
+
+                    <button disabled={!imageUploaded} className="btn btn-success col-6 " style={{ marginTop: "10px", color: 'white' }} type="submit">
                         Add product
                     </button>
                 </form>

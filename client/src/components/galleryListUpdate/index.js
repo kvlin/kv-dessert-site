@@ -59,15 +59,15 @@ const GalleryList = ({ galleryData, category, styleClass, deleteProduct }) => {
             ))}
             <Modal show={show} onHide={modalClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>Delete</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Body>Delete this product?</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={modalClose}>
                         Back
                     </Button>
                     <Button variant="primary" id="confirmDelBtn" onClick={confirmDelete}>
-                        Delete
+                        Confirm
                     </Button>
                 </Modal.Footer>
             </Modal>

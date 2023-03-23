@@ -40,7 +40,7 @@ const Admin = () => {
       const tempArray = galleryData.filter(product => !categories.includes(product.category));
       setUncategorized(tempArray);
     }
-  }, [galleryData, categories,galleryLoaded]);
+  }, [galleryData, categories, galleryLoaded]);
 
   const deleteProduct = async ({ productName, createdAt }) => {
     try {
@@ -64,9 +64,20 @@ const Admin = () => {
 
   return (
     <div>
-      <CategoryAddForm categories={categories} />
-      <CategoryDeleteform categories={categories} />
-      <ProductForm categories={categories} />
+      <div className="row">
+        <div className="col-md-4">
+          <CategoryAddForm className="col-6" categories={categories} />
+        </div>
+        <div className="col-md-4">
+          <ProductForm className="col-6" categories={categories} />
+        </div>
+        <div className="col-md-4">
+          <CategoryDeleteform className="col-6" categories={categories} />
+        </div>
+
+
+
+      </div>
       {galleryLoaded && categories.map((cat, index) => (
         <Animate key={index} to="1" from="0.5" attributeName="opacity">
           <GalleryListUpdate key={cat} galleryData={galleryData} category={cat} styleClass={galleryImgStyle} deleteProduct={deleteProduct} />

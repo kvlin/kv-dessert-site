@@ -5,7 +5,7 @@ const GalleryImg = ({ data, styleClass }) => {
     const [imageLoaded, setImageLoaded] = React.useState(false);
     return (
         <div>
-            <img loading='lazy' width="200px" height="200px" onLoad={() => setImageLoaded(true)}
+            <img onLoad={() => setImageLoaded(true)}
                 className={`smooth-image image-${imageLoaded ? 'visible' : 'hidden'} ${styleClass}`} src={data.image} alt="Product" />
         </div>
     );
