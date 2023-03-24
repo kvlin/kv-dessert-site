@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('../../config/passport')
+
 const AWS = require('aws-sdk');
 
 const configuration = {
@@ -46,6 +48,25 @@ router.get('/settings', (req, res) => {
     })
 })
 
+// Login user
+router.post('/login/', passport.authenticate('local'), (req, res) => {
+    console.log(req.user)
+    res.json(req.user)
+})
+
+// check if a user has been authenticated by verifying the isAuthenticated() property provided by passport.js
+router.get('/logged-in', (req, res) => {
+    res.json({ isAuthenticated: req.isAuthenticated() })
+})
+
+// use .logout() to log out
+router.get("/logout", (req, res) => {
+    req.logout(req.user, err => {
+        if (err) return next(err);
+        res.redirect("/");
+    });
+});
+
 // Add new category in to array
 router.post('/addCategory', async (req, res) => {
     const params = {
@@ -77,7 +98,7 @@ router.post('/addCategory', async (req, res) => {
     //     });
 });
 
-// Create new user
+// Create new product
 router.post('/addProduct', async (req, res) => {
     const params = {
         TableName: table,
