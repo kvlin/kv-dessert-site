@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import logo from "../../logo-white-bg-removed.jpg"
+import AuthContext from '../../utils/AuthContext'
 
 import './index.css'
 
 import { Spin as Hamburger } from 'hamburger-react'
 const Header = () => {
+  const { isAuthenticated } = useContext(AuthContext)
+
   //   const navBrandStyle = {
   //     fontSize:"180%",
   //     fontWeight:"350",
@@ -21,7 +24,9 @@ const Header = () => {
     margin: "2rem 2em 0rem"
   }
 
-
+  const userLogOut = () => {
+    fetch('/api/logout')
+  }
   return (
     <>
 
@@ -48,6 +53,7 @@ const Header = () => {
             <li className="nav-item">
               <a className="nav-link" style={navLinkStyle} href="/contact">Contact</a>
             </li>
+
             {/* <li className="nav-item">
               <a className="nav-link" style={navLinkStyle} href="/adminContact">Admin Contact</a>
             </li> */}
@@ -59,6 +65,14 @@ const Header = () => {
 
 
           <ul className="navbar-nav" >
+            {isAuthenticated ? <li className="nav-item">
+              <a className="nav-link" style={navLinkStyle} onClick={userLogOut} href='/'>Logout</a>
+            </li>
+              : <li className="nav-item">
+                <a className="nav-link" style={navLinkStyle} href="/login">Login</a>
+              </li>
+
+            }
             {/* light theme */}
             {/* <li className="nav-item media-group">
               <a className="nav-link media-link" target="_blank" rel="noopener noreferrer" id="ins-link" style={navLinkStyle} href="https://www.instagram.com/vsdessertstudio/">
@@ -77,7 +91,7 @@ const Header = () => {
             {/* end light theme */}
 
             {/* dark theme */}
-            <li className="nav-item media-group">
+            {/* <li className="nav-item media-group">
 
               <a className="nav-link media-link" target="_blank" rel="noopener noreferrer" id="ins-link" style={navLinkStyle} href="https://www.instagram.com/vsdessertstudio/">
                 <svg id="ins-svg-dark" fill="var(--main-theme-color)" xmlns="http://www.w3.org/2000/svg" width="42" height="42" className="bi bi-instagram" viewBox="0 0 16 16">
@@ -91,7 +105,7 @@ const Header = () => {
                   <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
                 </svg>
               </a>
-            </li>
+            </li> */}
             {/* end dark theme */}
 
 
