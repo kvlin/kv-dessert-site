@@ -36,6 +36,7 @@ passport.use(
         if (err) {
           res.status(500).json(err)
         } else {
+          fetchedUsers = results.Items[0].values[0]
           if (fetchedUsers.hasOwnProperty(email)) {
             console.log(fetchedUsers[email])
             // res.json({ email: email, password: fetchedUsers[email] })

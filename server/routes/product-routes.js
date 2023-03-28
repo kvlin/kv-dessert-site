@@ -31,6 +31,31 @@ router.get('/allProducts', (req, res) => {
     })
 })
 
+// Route to retrieve a product
+router.get('/product/:name', (req, res) => {
+    const params = {
+        TableName: table,
+        ExpressionAttributeNames: {
+            "#prod": "productName"
+        },
+        // values use aliases with : prefix 
+        ExpressionAttributeValues: {
+            ":name": req.params.name
+        },
+        // specifies the search criteria
+        KeyConditionExpression: "#prod = :name",
+    };
+    // Scan return all items in the table
+    docClient.query(params, (err, results) => {
+        if (err) {
+            res.status(500).json(err)
+        } else {
+            console.log(results.Items)
+            res.json(results.Items)
+        }
+    })
+})
+
 // Route to retrieve all categories
 router.get('/settings', (req, res) => {
     const params = {

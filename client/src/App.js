@@ -6,11 +6,13 @@ import AdminContact from "./pages/AdminContact/index";
 import Contact from "./pages/Contact/index";
 import Admin from "./pages/AdminMain/index";
 import ShoppingCart from './components/shoppingCart/ShoppingCart';
+import ProductDetails from "./pages/ProductDetails/index"
 import Login from "./pages/Login/index";
 import NoPage from "./pages/NoPage";
 import Navbar from './components/navbar'
 import Footer from './components/footer'
 import AuthContext from './utils/AuthContext'
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(true)
@@ -51,6 +53,7 @@ function App() {
                   <Route exact path="/testimonials" component={Admin} />
                   <Route exact path="/contact" component={Contact} />
                   <Route exact path="/shoppingCart" component={ShoppingCart} />
+                  <Route exact path="/productDetails" component={ProductDetails} />
                   <Route exact path="/login" component={Login} />
                   <Route exact path={['/logout']}>
                     <Login />

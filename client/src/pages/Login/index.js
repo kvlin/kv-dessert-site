@@ -32,9 +32,9 @@ const Login = () => {
         <form onSubmit={handleFormSubmit} className="form-signin" style={{ maxWidth: '300px', margin: "100px auto" }}>
             <h1 className="h3 mb-3 font-weight-normal">Welcome!</h1>
             <label htmlFor="inputEmail" className="sr-only"></label>
-            <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required="" autoFocus="" />
+            <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required="" autoFocus="" defaultValue="user1@email.com" />
             <label htmlFor="inputPassword" className="sr-only"></label>
-            <input type="password" id="inputPassword" className="form-control" placeholder="Password" required="" />
+            <input type="password" id="inputPassword" className="form-control" placeholder="Password" required="" defaultValue="w" />
 
             <button className="btn btn-lg  btn-block" style={{ marginTop: "2rem", color: "white", backgroundColor: " var(--main-theme-color)" }} type="submit">Sign in</button>
         </form>

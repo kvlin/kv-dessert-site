@@ -8,7 +8,7 @@ const ShoppingCart = () => {
     // use useEffect to fetch items from the database and set them to the items state with request to 'api/shoppingCart/:id'
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`/api/shoppingCart`);
+            const res = await fetch(`/api/cart`);
             const data = await res.json();
             console.log(data);
             setItems(data[0].cart);
