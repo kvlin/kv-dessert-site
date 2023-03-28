@@ -5,6 +5,7 @@ const ShoppingCart = () => {
     const user = useContext(AuthContext);
     console.log(user.user);
     const [items, setItems] = useState([]);
+    const [dataFetched, setDataFetched] = useState(false);
     // use useEffect to fetch items from the database and set them to the items state with request to 'api/shoppingCart/:id'
     useEffect(() => {
         const fetchData = async () => {
@@ -12,6 +13,7 @@ const ShoppingCart = () => {
             const data = await res.json();
             console.log(data);
             setItems(data[0].cart);
+            setDataFetched(true);
         }
         fetchData();
     }, [])
@@ -52,20 +54,22 @@ const ShoppingCart = () => {
     return (
         <div>
             <h2>Shopping Cart</h2>
-            {items.length === 0 ?
-                <p>Your cart is empty</p> :
-                <ul>
-                    {items.map((item, index) => (
-                        <li key={index}>
-                            {item.name} - ${item.price}
-                            <button onClick={() => removeItem(index)}>Remove</button>
-                        </li>
-                    ))}
-                </ul>
-            }
-
-            {items.length !== 0 && <p>Total: ${total}</p>}
-            {items.length !== 0 && <button onClick={() => clearCart()}>Clear Cart</button>}
+            {!dataFetched && <p>Loading...</p>}
+            {dataFetched && items.length !== 0 ?
+                <>
+                    <ul>
+                        {items.map((item, index) => (
+                            <li key={index}>
+                                {item.name} - ${item.price}
+                                <button onClick={() => removeItem(index)}>Remove</button>
+                            </li>
+                        ))}
+                    </ul>
+                    <p>Total: ${total}</p>
+                    <button onClick={() => clearCart()}>Clear Cart</button>
+                </> :
+                null}
+            {dataFetched && items.length === 0 ? <p>Your cart is empty</p> : null}
         </div>
     );
 };
