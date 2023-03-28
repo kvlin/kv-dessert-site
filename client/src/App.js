@@ -10,13 +10,12 @@ import Login from "./pages/Login/index";
 import NoPage from "./pages/NoPage";
 import Navbar from './components/navbar'
 import Footer from './components/footer'
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 import AuthContext from './utils/AuthContext'
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(true)
-  const value = { isAuthenticated, setIsAuthenticated }
+  const [user, setUser] = useState("")
+  const value = { isAuthenticated, setIsAuthenticated, user }
 
   // We check if user is already logged in, and if they are then we set isAuthenticated to true
   useEffect(() => {
@@ -25,6 +24,7 @@ function App() {
       const data = await res.json();
       console.log(data.isAuthenticated)
       setIsAuthenticated(data.isAuthenticated)
+      setUser(data.user)
       //setIsAuthenticated(false)
 
     }
@@ -33,42 +33,40 @@ function App() {
   return (
     <AuthContext.Provider value={value}>
       <div className="App">
-        <DndProvider backend={HTML5Backend}>
-          <Navbar />
-          <div id="site-wrapper">
-            <div className="row">
-              <div id="main-container" className="col">
-                <Router>
+        <Navbar />
+        <div id="site-wrapper">
+          <div className="row">
+            <div id="main-container" className="col">
+              <Router>
 
-                  <Switch>
-                    <Route exact path={['/']}>
-                      {isAuthenticated
-                        ? <Home /> : <Login />}
-                    </Route>
-                    <Route exact path={['/home']}>
-                      {isAuthenticated
-                        ? <Home /> : <Login />}
-                    </Route>
-                    <Route exact path="/testimonials" component={Admin} />
-                    <Route exact path="/contact" component={Contact} />
-                    <Route exact path="/shoppingCart" component={ShoppingCart} />
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path={['/logout']}>
-                      <Login />
-                    </Route>
-                    <Route exact path="/admin" component={Admin} />
-                    <Route exact path="/adminContact" component={AdminContact} />
-                    <Route component={NoPage} />
-                  </Switch>
+                <Switch>
+                  <Route exact path={['/']}>
+                    {isAuthenticated
+                      ? <Home /> : <Login />}
+                  </Route>
+                  <Route exact path={['/home']}>
+                    {isAuthenticated
+                      ? <Home /> : <Login />}
+                  </Route>
+                  <Route exact path="/testimonials" component={Admin} />
+                  <Route exact path="/contact" component={Contact} />
+                  <Route exact path="/shoppingCart" component={ShoppingCart} />
+                  <Route exact path="/login" component={Login} />
+                  <Route exact path={['/logout']}>
+                    <Login />
+                  </Route>
+                  <Route exact path="/admin" component={Admin} />
+                  <Route exact path="/adminContact" component={AdminContact} />
+                  <Route component={NoPage} />
+                </Switch>
 
-                </Router>
-              </div>
-            </div>
-            <div className="row">
-              <Footer id="footer" />
+              </Router>
             </div>
           </div>
-        </DndProvider>
+          <div className="row">
+            <Footer id="footer" />
+          </div>
+        </div>
       </div>
     </AuthContext.Provider>
   );

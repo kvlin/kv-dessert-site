@@ -17,12 +17,22 @@ nav {
   margin-left: 1rem !important ;
 }
 
-#my-cool-gradient {
+/* ins colour set */
+/* #my-cool-gradient {
   --color-stop-1: #f7df5a;
   --color-stop-3: #f82258;
   --color-stop-4: rgb(204, 65, 174);
   --color-stop-6: #405DE6;
+} */
+
+/* custom colour set */
+#my-cool-gradient {
+  --color-stop-1: #60cdfc;
+  --color-stop-3: #25aae1;
+  --color-stop-4: #30dd8c;
+  --color-stop-6: #2bb673;
 }
+
 
 svg {
   margin-bottom: 5px;
@@ -44,9 +54,16 @@ svg {
 
 }
 
- #test{
+ #testColor{
 
     background-image: linear-gradient(45deg, #F77737, #F56040,#FD1D1D,#E1306C,#C13584,#833AB4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #testColor2{
+
+    background-image: linear-gradient(to left,  #25aae1, #40e495, #30dd8a, #2bb673);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -73,7 +90,12 @@ svg {
   #navbarToggle ul li a{
   position: relative;
 }
+#cart-svg-dark:hover {
 
+  /* fill:var(--main-theme-color) !important */
+  fill: 	#9842b2 !important;
+
+}
 
 #internal-links li a:after{
   position: absolute;

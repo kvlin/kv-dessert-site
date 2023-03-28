@@ -4,6 +4,8 @@ const session = require("express-session");
 const app = express();
 const productRoutes = require('./routes/product-routes');
 const imageRoutes = require('./routes/image-routes');
+const authRoutes = require('./routes/auth-routes');
+const userRoutes = require('./routes/user-routes');
 const PORT = process.env.PORT || 3001;
 const passport = require("../config/passport");
 
@@ -27,7 +29,8 @@ app.use(passport.session());
 // app.use(require('./routes'));
 app.use('/api/', productRoutes);
 app.use('/api/', imageRoutes);
-
+app.use('/api/', authRoutes);
+app.use('/api/', userRoutes);
 // Start the API server
 app.listen(PORT, () =>
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
