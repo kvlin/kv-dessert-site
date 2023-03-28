@@ -5,6 +5,7 @@ import Home from './pages/Home/index';
 import AdminContact from "./pages/AdminContact/index";
 import Contact from "./pages/Contact/index";
 import Admin from "./pages/AdminMain/index";
+import ShoppingCart from './components/shoppingCart/ShoppingCart';
 import Login from "./pages/Login/index";
 import NoPage from "./pages/NoPage";
 import Navbar from './components/navbar'
@@ -50,6 +51,7 @@ function App() {
                     </Route>
                     <Route exact path="/testimonials" component={Admin} />
                     <Route exact path="/contact" component={Contact} />
+                    <Route exact path="/shoppingCart" component={ShoppingCart} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path={['/logout']}>
                       <Login />
