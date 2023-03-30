@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./index.css"
 const ProductForm = ({ categories }) => {
     const [formState, setFormState] = useState({
@@ -7,12 +7,16 @@ const ProductForm = ({ categories }) => {
     });
     const [imageUploaded, setImageUploaded] = useState(false)
 
+    useEffect(() => {
+        setFormState(formState, formState.category = categories[0])
+    }, [categories])
     // update state based on form input changes
     const handleChange = (event) => {
 
         if (event.target.value.length <= 280) {
             setFormState({ ...formState, [event.target.name]: event.target.value });
         }
+
     };
 
     // submit form
@@ -71,7 +75,7 @@ const ProductForm = ({ categories }) => {
     };
     return (
         <div id="product-form" className="modern-form">
-            <h4 className="modern-form-title">Add a product</h4>
+            <h4 className="modern-form-title">Add fa product</h4>
             {categories &&
                 <form
                     className="flex-row justify-center justify-space-between-md align-stretch modern-form-inner"
@@ -97,7 +101,7 @@ const ProductForm = ({ categories }) => {
                     <div style={{ backgroundColor: "white", borderRadius: "5px" }}>
                         <label className="form-input col-12  p-1 modern-label">
                             <strong>Upload product image:</strong>
-                            <input type="file" ref={fileInput} className="form-input p-2 modern-file-input" />
+                            <input type="file" accept="image/*" ref={fileInput} className="form-input p-2 file-input" />
                             <button className="btn btn-secondary" onClick={handleImageUpload} type="submit">
                                 Upload image
                             </button>

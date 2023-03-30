@@ -53,8 +53,9 @@ const ShoppingCart = () => {
     const total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
     return (
-        <div>
+        <div style={{ paddingTop: "3rem" }}>
             <h2>Shopping Cart</h2>
+            <br />
             {!dataFetched && <p>Loading...</p>}
             {dataFetched && items.length !== 0 ?
                 <>

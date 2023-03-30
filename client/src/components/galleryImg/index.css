@@ -1,0 +1,34 @@
+.productContainer {
+    position: relative;
+  }
+  
+  .productDispImg{
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    bottom: 3rem;
+    text-align: center;
+    width: 100%;
+  }
+  
+
+  
+  .productContainer:hover .middle {
+    opacity: 1;
+  }
+  
+  .text {
+    opacity: 0.85;
+    background-color: #000000;
+    color: white;
+    padding: 1rem;
+  }

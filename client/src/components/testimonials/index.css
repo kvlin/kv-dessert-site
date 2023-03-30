@@ -14,7 +14,7 @@
   }
 
   .carousel-inner {
-    padding: 2rem 3rem;
+    padding: 3rem 3rem;
   }
   /* screen width when navbar toggle first appear --> 991px */
 @media screen and (max-width: 991px){

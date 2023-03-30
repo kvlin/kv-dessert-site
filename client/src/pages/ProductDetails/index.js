@@ -61,30 +61,34 @@ const ProductDetails = () => {
     };
 
     return (
-        <Row>
-            <Col md={4}>
-                <Image src={image} alt={productName} fluid />
-            </Col>
-            <Col md={8}>
-                <h1>{productName}</h1>
-                <p>{description}</p>
-                <p>Price: ${price}</p>
-                <Form>
-                    <Form.Group>
-                        <Form.Label>Quantity:</Form.Label>
-                        <Form.Control
-                            type="number"
-                            min="1"
-                            value={quantity}
-                            onChange={handleQuantityChange}
-                        />
-                    </Form.Group>
-                    <Button variant="primary" onClick={handleAddToCart}>
-                        Add to Cart
-                    </Button>
-                </Form>
-            </Col>
-        </Row>
+        <div style={{ paddingTop: "3rem" }}>
+            <Row >
+                <Col sm={4}>
+                    <Image src={image} alt={productName} fluid />
+                </Col>
+                <Col sm={8}>
+                    <h1>{productName}</h1>
+                    <p>{description}</p>
+                    <p>Price: ${price}/each</p>
+                    <Form style={{ maxWidth: "300px", margin: "0 auto" }}>
+                        <Form.Group>
+                            <Form.Label>Quantity:</Form.Label>
+                            <Form.Control
+                                style={{ maxWidth: "5rem", margin: "0 auto" }}
+                                type="number"
+                                min="1"
+                                value={quantity}
+                                onChange={handleQuantityChange}
+                            />
+                        </Form.Group>
+                        <br />
+                        <Button variant="primary" onClick={handleAddToCart}>
+                            Add to Cart
+                        </Button>
+                    </Form>
+                </Col>
+            </Row>
+        </div>
     );
 };
 
