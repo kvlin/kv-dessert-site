@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import AuthContext from '../../utils/AuthContext';
+import CartItemCard from '../cartItemCard';
 const ShoppingCart = () => {
 
     const user = useContext(AuthContext);
@@ -57,16 +58,16 @@ const ShoppingCart = () => {
             {!dataFetched && <p>Loading...</p>}
             {dataFetched && items.length !== 0 ?
                 <>
-                    <ul>
+                    <ul style={{ maxWidth: "600px", margin: "0 auto" }}>
                         {items.map((item, index) => (
-                            <li key={index}>
-                                {item.name} - ${item.price}
-                                <button onClick={() => removeItem(index)}>Remove</button>
-                            </li>
+                            <div key={index}>
+                                <CartItemCard item={item} removeItem={() => removeItem(index)} />
+                                <br />
+                            </div>
                         ))}
                     </ul>
                     <p>Total: ${total}</p>
-                    <button onClick={() => clearCart()}>Clear Cart</button>
+                    <button className="btn btn-danger" onClick={() => clearCart()}>Clear Cart</button>
                 </> :
                 null}
             {dataFetched && items.length === 0 ? <p>Your cart is empty</p> : null}

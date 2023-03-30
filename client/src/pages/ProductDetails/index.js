@@ -42,7 +42,9 @@ const ProductDetails = () => {
                         toCart: {
                             name: productName,
                             price,
-                            quantity
+                            quantity,
+                            image
+
                         }
 
                     })
