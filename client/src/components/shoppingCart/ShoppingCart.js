@@ -1,12 +1,21 @@
 import React, { useState, useEffect, useContext } from 'react';
 import AuthContext from '../../utils/AuthContext';
 import CartItemCard from '../cartItemCard';
-const ShoppingCart = () => {
+import Alert from 'react-bootstrap/Alert'
 
+const ShoppingCart = () => {
     const user = useContext(AuthContext);
-    console.log(user.user);
+    const [showLoginAlert, setShowLoginAlert] = useState(false);
     const [items, setItems] = useState([]);
     const [dataFetched, setDataFetched] = useState(false);
+    const [showCheckout, setShowCheckout] = useState(false);
+
+    useEffect(() => {
+        if (user.user == undefined)
+            setShowLoginAlert(true)
+        setDataFetched(true)
+
+    }, [user])
     // use useEffect to fetch items from the database and set them to the items state with request to 'api/shoppingCart/:id'
     useEffect(() => {
         const fetchData = async () => {
@@ -53,25 +62,43 @@ const ShoppingCart = () => {
     const total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
     return (
-        <div style={{ paddingTop: "3rem" }}>
-            <h2>Shopping Cart</h2>
-            <br />
-            {!dataFetched && <p>Loading...</p>}
-            {dataFetched && items.length !== 0 ?
-                <>
-                    <ul style={{ maxWidth: "600px", margin: "0 auto" }}>
-                        {items.map((item, index) => (
-                            <div key={index}>
-                                <CartItemCard item={item} removeItem={() => removeItem(index)} />
-                                <br />
-                            </div>
-                        ))}
-                    </ul>
-                    <p>Total: ${total}</p>
-                    <button className="btn btn-danger" onClick={() => clearCart()}>Clear Cart</button>
-                </> :
-                null}
-            {dataFetched && items.length === 0 ? <p>Your cart is empty</p> : null}
+        <div >
+            {showLoginAlert &&
+                <Alert variant="warning" onClose={() => showLoginAlert(false)} >
+                    <Alert.Heading>Please <Alert.Link href="/login">login</Alert.Link> to access cart.</Alert.Heading>
+                </Alert>
+            }
+            {showCheckout &&
+                <Alert variant="warning" onClose={() => setShowCheckout(false)} dismissible>
+                    <Alert.Heading>To be continued...</Alert.Heading>
+                    As this is not a real store, the checkout and payment functionalities are not implemented :)
+                </Alert>
+            }
+
+            <div style={{ paddingTop: "3rem" }}>
+                <h2>Shopping Cart</h2>
+                <br />
+                {!dataFetched && <p>Loading...</p>}
+                {dataFetched && items.length !== 0 ?
+                    <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+                        <ul style={{ paddingLeft: "0 " }}>
+                            {items.map((item, index) => (
+                                <div key={index}>
+                                    <CartItemCard item={item} removeItem={() => removeItem(index)} />
+                                    <br />
+                                </div>
+                            ))}
+                        </ul>
+                        <p>Total: ${total}</p>
+                        <div style={{ justifyContent: "space-between", display: "flex" }}>
+                            <button className="btn btn-danger" onClick={() => clearCart()}>Clear Cart</button>
+                            <button className="btn btn-success" onClick={() => setShowCheckout(true)}>Checkout</button>
+
+                        </div>
+                    </div> :
+                    null}
+                {dataFetched && items.length === 0 ? <p>Your cart is empty</p> : null}
+            </div >
         </div>
     );
 };

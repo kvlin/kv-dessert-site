@@ -3,7 +3,6 @@ import './index.css'
 
 const GalleryImg = ({ data, styleClass }) => {
     const [imageLoaded, setImageLoaded] = React.useState(false);
-    console.log(data)
     return (
         <div className="productContainer" >
             <a href={`productDetails?name=${data.productName}`}>

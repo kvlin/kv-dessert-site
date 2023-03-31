@@ -75,7 +75,7 @@ const ProductForm = ({ categories }) => {
     };
     return (
         <div id="product-form" className="modern-form">
-            <h4 className="modern-form-title">Add fa product</h4>
+            <h4 className="modern-form-title">Add a product</h4>
             {categories &&
                 <form
                     className="flex-row justify-center justify-space-between-md align-stretch modern-form-inner"

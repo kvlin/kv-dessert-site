@@ -14,7 +14,7 @@ const index = ({ style }) => {
 							Contact
 						</h3>
 						<p className="">
-							Message via Instagram or Wechat
+							Message via Instagram or Facebook
 						</p>
 					</div>
 					<div className="ml-6 ml-lg-0  flex-shrink-0">

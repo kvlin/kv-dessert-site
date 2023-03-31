@@ -5,7 +5,7 @@ const ContactDetails = ({ contactDetails, order }) => {
     console.log(order)
     const tempContactObj = {};
     if (order) {
-        order.reverse().forEach((x) => {
+        ['hours', 'address', 'instagram', 'facebook'].reverse().forEach((x) => {
             tempContactObj[x] = contactDetails[x]
             console.log(tempContactObj)
         })

@@ -4,7 +4,6 @@ import ProductForm from '../../components/productForm';
 import CategoryAddForm from '../../components/categoryAddForm'
 import CategoryDeleteform from '../../components/categoryDeleteForm'
 import GalleryListUncategorized from '../../components/galleryListUncategorized'
-import Callout from '../../components/callout';
 import Animate from 'react-smooth'
 
 const Admin = () => {
@@ -88,8 +87,6 @@ const Admin = () => {
           <GalleryListUncategorized key={"x"} uncategorized={uncategorized} styleClass={galleryImgStyle} deleteProduct={deleteProduct} />
         </Animate>
       }
-      {galleryLoaded &&
-        <Callout style={{ maxWidth: "945px", display: "block", margin: "1.5rem auto" }} />}
     </div>
   );
 };

@@ -15,7 +15,7 @@ import AuthContext from './utils/AuthContext'
 
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [user, setUser] = useState("")
   const value = { isAuthenticated, setIsAuthenticated, user }
 
@@ -24,7 +24,6 @@ function App() {
     async function fetchData() {
       const res = await fetch('/api/logged-in');
       const data = await res.json();
-      console.log(data.isAuthenticated)
       setIsAuthenticated(data.isAuthenticated)
       setUser(data.user)
       //setIsAuthenticated(false)
@@ -43,14 +42,12 @@ function App() {
 
                 <Switch>
                   <Route exact path={['/']}>
-                    {isAuthenticated
-                      ? <Home /> : <Login />}
+                    <Home />
                   </Route>
                   <Route exact path={['/home']}>
-                    {isAuthenticated
-                      ? <Home /> : <Login />}
+                    <Home />
                   </Route>
-                  <Route exact path="/testimonials" component={Admin} />
+                  <Route exact path="/admin" component={Admin} />
                   <Route exact path="/contact" component={Contact} />
                   <Route exact path="/shoppingCart" component={ShoppingCart} />
                   <Route exact path="/productDetails" component={ProductDetails} />

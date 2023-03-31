@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Row, Col, Image, Form, Button } from 'react-bootstrap';
-
+import Alert from 'react-bootstrap/Alert'
+import AuthContext from '../../utils/AuthContext';
 const ProductDetails = () => {
+    const user = useContext(AuthContext);
+    const [show, setShow] = useState(false);
+    const [showLoginAlert, setShowLoginAlert] = useState(false);
+    const [waitingDB, setWaitingDB] = useState(false);
     const queryParameters = new URLSearchParams(window.location.search)
     const queryProductName = queryParameters.get("name")
 
@@ -9,7 +14,11 @@ const ProductDetails = () => {
     const [productDetails, setProductDetails] = useState({})
     const { image, productName, description, price } = productDetails;
     useEffect(() => {
+        if (user.user == undefined)
+            setShowLoginAlert(true)
 
+    }, [user])
+    useEffect(() => {
         const fetchProducts = async () => {
             try {
                 const res = await fetch('/api/product/' + queryProductName);
@@ -30,7 +39,13 @@ const ProductDetails = () => {
     };
 
     const handleAddToCart = (event) => {
+
         event.preventDefault();
+        if (!user.isAuthenticated) {
+            setShowLoginAlert(true)
+            return
+        }
+        setWaitingDB(true);
         const addToCart = async () => {
             try {
                 const res = await fetch('/api/cart', {
@@ -50,7 +65,10 @@ const ProductDetails = () => {
                     })
                 });
                 const data = await res.json();
-                console.log(data)
+                if (data.created) {
+                    setWaitingDB(false);
+                    setShow(true);
+                }
             } catch (error) {
                 console.log(error);
 
@@ -59,10 +77,33 @@ const ProductDetails = () => {
         addToCart();
         console.log(`Added ${quantity} ${productName} to cart!`);
     };
-
+    // Close the modal automatically after 5 seconds
+    if (show) {
+        setTimeout(() => {
+            setShow(false)
+        }, 5000)
+    }
     return (
-        <div style={{ paddingTop: "3rem" }}>
-            <Row >
+        <div >
+            {showLoginAlert &&
+                <Alert variant="warning" onClose={() => showLoginAlert(false)} >
+                    <Alert.Heading>Please <Alert.Link href="/login">login</Alert.Link> to access cart.</Alert.Heading>
+                </Alert>
+            }
+            {
+                waitingDB &&
+                <Alert variant="warning" onClose={() => setShow(false)} >
+                    <Alert.Heading>Loading...</Alert.Heading>
+                </Alert>
+            }
+            {
+                show &&
+                <Alert variant="success" onClose={() => setShow(false)} dismissible>
+                    <Alert.Heading>Success!</Alert.Heading>
+                    {quantity} {productName} added to  <Alert.Link href="/shoppingCart">cart</Alert.Link>!
+                </Alert>
+            }
+            <Row style={{ paddingTop: "3rem" }}>
                 <Col sm={4}>
                     <Image src={image} alt={productName} fluid />
                 </Col>
@@ -88,7 +129,7 @@ const ProductDetails = () => {
                     </Form>
                 </Col>
             </Row>
-        </div>
+        </div >
     );
 };
 
