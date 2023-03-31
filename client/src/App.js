@@ -51,7 +51,9 @@ function App() {
                   <Route exact path="/contact" component={Contact} />
                   <Route exact path="/shoppingCart" component={ShoppingCart} />
                   <Route exact path="/productDetails" component={ProductDetails} />
-                  <Route exact path="/login" component={Login} />
+                  <Route exact path="/login" component={Login} >
+                    {isAuthenticated ? <Home /> : <Login />}
+                  </Route>
                   <Route exact path={['/logout']}>
                     <Login />
                   </Route>
