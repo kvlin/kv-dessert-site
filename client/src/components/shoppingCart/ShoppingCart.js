@@ -34,7 +34,7 @@ const ShoppingCart = () => {
     const removeItem = async (index) => {
         const newItems = [...items];
         newItems.splice(index, 1);
-        const res = await fetch(`/api/cart`, {
+        const res = await fetch(`http://3.15.220.133/api/cart`, {
             method: 'DELETE',
             headers: {
                 Accept: 'application/json',

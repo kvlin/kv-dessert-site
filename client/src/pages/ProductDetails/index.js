@@ -21,7 +21,7 @@ const ProductDetails = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await fetch('/api/product/' + queryProductName);
+                const res = await fetch('http://3.15.220.133/api/product/' + queryProductName);
                 const data = await res.json();
                 // sort the array by createdAt property ordered by descending values
                 setProductDetails(data[0])
@@ -48,7 +48,7 @@ const ProductDetails = () => {
         setWaitingDB(true);
         const addToCart = async () => {
             try {
-                const res = await fetch('/api/cart', {
+                const res = await fetch('http://3.15.220.133/api/cart', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'

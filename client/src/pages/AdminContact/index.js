@@ -11,7 +11,7 @@ function Contact(props) {
     useEffect(() => {
         const fetchContactDetailsAndOrder = async () => {
             try {
-                const res = await fetch('/api/settings');
+                const res = await fetch('http://3.15.220.133/api/settings');
                 const jsonData = await res.json();
                 console.log(jsonData)
                 jsonData.forEach((config) => {

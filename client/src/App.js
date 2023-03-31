@@ -22,7 +22,7 @@ function App() {
   // We check if user is already logged in, and if they are then we set isAuthenticated to true
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch('/api/logged-in');
+      const res = await fetch('http://3.15.220.133/api/logged-in');
       const data = await res.json();
       setIsAuthenticated(data.isAuthenticated)
       setUser(data.user)

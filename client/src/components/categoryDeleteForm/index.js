@@ -9,7 +9,7 @@ const CategoryAdd = ({ categories }) => {
             const updatedCategories = categories.filter(c => c !== currentCategory)
             console.log(updatedCategories)
             const deleteData = async () => {
-                const res = await fetch('/api/deleteCategory', {
+                const res = await fetch('http://3.15.220.133/api/deleteCategory', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',

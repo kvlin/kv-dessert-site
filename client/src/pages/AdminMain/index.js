@@ -16,11 +16,11 @@ const Admin = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const productsRes = await fetch('/api/allProducts');
+        const productsRes = await fetch('http://3.15.220.133/api/allProducts');
         const productsJson = await productsRes.json();
         const sortedData = productsJson.sort((a, b) => (a.createdAt < b.createdAt) ? 1 : -1);
 
-        const settingsRes = await fetch('/api/settings');
+        const settingsRes = await fetch('http://3.15.220.133/api/settings');
         const settingsJson = await settingsRes.json();
         const categoriesData = settingsJson.find(d => d.configs === "categories")?.values || [];
 
@@ -43,7 +43,7 @@ const Admin = () => {
 
   const deleteProduct = async ({ productName, createdAt }) => {
     try {
-      const response = await fetch('/api/deleteProduct', {
+      const response = await fetch('http://3.15.220.133/api/deleteProduct', {
         method: 'DELETE',
         headers: {
           'Content-type': 'application/json'

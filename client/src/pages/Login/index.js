@@ -9,7 +9,7 @@ const Login = () => {
         const inputEmail = event.target.inputEmail.value
         const inputPassword = event.target.inputPassword.value
 
-        await fetch('/api/login', {
+        await fetch('http://3.15.220.133/api/login', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

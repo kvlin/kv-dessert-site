@@ -26,7 +26,7 @@ const ProductForm = ({ categories }) => {
         // clear form value
         setFormState({ productName: "", createdAt: "" });
         const postData = async () => {
-            const res = await fetch('/api/addProduct', {
+            const res = await fetch('http://3.15.220.133/api/addProduct', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -55,7 +55,7 @@ const ProductForm = ({ categories }) => {
 
         const postImage = async () => {
             try {
-                const res = await fetch('/api/image-upload', {
+                const res = await fetch('http://3.15.220.133/api/image-upload', {
                     mode: 'cors',
                     method: 'POST',
                     body: data

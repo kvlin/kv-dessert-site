@@ -17,10 +17,10 @@ function Home(props) {
   const [categories, setCategories] = useState([]);
   const [testimonialsData, setTestimonialData] = useState([]);
   useEffect(() => {
-    
+
     const fetchProducts = async () => {
       try {
-        const res = await fetch('/api/allProducts');
+        const res = await fetch('http://3.15.220.133/api/allProducts');
         const jsonData = await res.json();
         // sort the array by createdAt property ordered by descending values
         const data = jsonData.sort((a, b) => (a.createdAt < b.createdAt) ? 1 : -1);
@@ -38,7 +38,7 @@ function Home(props) {
 
     const fetchSettings = async () => {
       try {
-        const res = await fetch('/api/settings');
+        const res = await fetch('http://3.15.220.133/api/settings');
         const jsonData = await res.json();
         jsonData.forEach(d => {
           if (d.configs === "categories") {

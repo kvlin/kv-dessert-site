@@ -7,7 +7,7 @@ const CategoryAddForm = ({ categories }) => {
         if (newCategory || newCategory != null) {
 
             const postData = async () => {
-                const res = await fetch('/api/addCategory', {
+                const res = await fetch('http://3.15.220.133/api/addCategory', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
