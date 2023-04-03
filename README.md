@@ -44,13 +44,13 @@ Deployed on AWS EC2: [Homepage](http://3.15.220.133/home)
 ## Screenshots 
 
 ### Homepage
-![Homepage](public/images/readme/readme-home.png)
+![Homepage](client/public/images/readme/readme-home.png)
 
 ### Product page 
-![Product page](public/images/readme/readme-product.png)
+![Product page](client/public/images/readme/readme-product.png)
 
 ### Cart page
-![Cart page](public/images/readme/readme-cart.png)
+![Cart page](client/public/images/readme/readme-cart.png)
 
 
 ## License 
