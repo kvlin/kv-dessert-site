@@ -1,5 +1,3 @@
-# A ecommerce site for desserts
-Deployed on AWS EC2: [Homepage](http://3.15.220.133/home)
 # Kv-Dessert-Studio
 
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://shields.io/)
@@ -41,8 +39,7 @@ As and individual project, I wanted to design a useful application that would fa
 
 ## Links 
 
-- GitHub repository: [https://github.com/kvlin/kv-dessert-site](https://github.com/kvlin/kv-dessert-site)
-- Deployed application: [Cloud Homepage](http://3.15.220.133/home)
+Deployed on AWS EC2: [Homepage](http://3.15.220.133/home)
 
 ## Screenshots 
 
