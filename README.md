@@ -53,7 +53,7 @@ Deployed on AWS EC2: [Homepage](http://3.15.220.133/home)
 ![Cart page](client/public/images/readme/readme-cart.png)
 
 ### Admin page
-![Admin page](public/images/readme/readme-admin.png)
+![Admin page](client/public/images/readme/readme-admin.png)
 Note: for simplicity, the admin page uses the same domain URL as the visitor, but with a different path and it's not displayed on the navigation bar.
 
 ## License 
