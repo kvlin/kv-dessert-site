@@ -23,7 +23,7 @@ There are two types of application users: *admin* and *visitors*. Admins are abl
 ## Motivations 
 This is an ecommerce application that provides restaurant/dessert owners online presence and allow visitors to make purchases online.
 
-As and individual project, I wanted to design a useful application that would facilitate the basic process of online shopping, which are to provide the retail owners (admins) an online platform to sell their products and for the users to make purchases (kindly note that the payment system is not implemented as this is not a real store).
+Since this is an individually developed project, I wanted this application to facilitate at least the basic process of online shopping, which are to provide the retail owners (admins) an online platform to sell their products and for the visitors to make purchases (please note that the payment system is not implemented as this is not a real store).
 
 ## Technologies Used
 
