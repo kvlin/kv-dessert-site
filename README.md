@@ -16,7 +16,9 @@ There are two types of application users: *admin* and *visitors*. Admins are abl
 - [Technologies Used](#Technologies-Used)
 - [Links](#Links)
 - [Screenshots](#Screenshots)
+- [Further Development options](#Further-Development-options)
 - [License](#License)
+
 
 ## Motivations 
 This is an ecommerce application that provides restaurant/dessert owners online presence and allow visitors to make purchases online.
@@ -38,7 +40,6 @@ As and individual project, I wanted to design a useful application that would fa
 - Google Fonts
 
 ## Links 
-
 Deployed on AWS EC2: [Homepage](http://3.15.220.133/home)
 
 ## Screenshots 
@@ -55,6 +56,14 @@ Deployed on AWS EC2: [Homepage](http://3.15.220.133/home)
 ### Admin page
 Note: for simplicity, the admin page uses the same domain URL as the visitor, but with a different path and it's not displayed on the navigation bar.
 ![Admin page](client/public/images/readme/readme-admin.png)
+
+### Further Development options
+- Implement payment system
+- Implement user registration option
+- Implement user profile page
+- Implement user order history page
+- Implement user review system (currently hard coded in the database)
+- Implement user search function
 
 ## License 
 
