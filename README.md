@@ -6,9 +6,9 @@
 
 ## Description 
 
-This is an responsive ecommerce application that allow restaurant/dessert stores to sell their product online. 
+This is an responsive ecommerce application that allow restaurant/dessert stores to sell their products online. 
 
-There are two types of application users: *admin* and *users*. Admins are able to log in and add/edit/delete products and categories. Users are able to log in and add items to their cart to make purchases.  
+There are two types of application users: *admin* and *visitors*. Admins are able to add/edit/delete products and categories. visitors are able to log in and add items to their cart to make purchases.  
 
 ## Table of Contents 
 
@@ -52,6 +52,9 @@ Deployed on AWS EC2: [Homepage](http://3.15.220.133/home)
 ### Cart page
 ![Cart page](public/images/readme/readme-cart.png)
 
+### Admin page
+![Admin page](public/images/readme/readme-admin.png)
+Note: for simplicity, the admin page uses the same domain URL as the visitor, but with a different path and it's not displayed on the navigation bar.
 
 ## License 
 
