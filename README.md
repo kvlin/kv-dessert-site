@@ -6,9 +6,10 @@
 
 ## Description 
 
-This is an responsive ecommerce application that allow restaurant/dessert stores to sell their products online. 
+This is a responsive e-commerce application that allows restaurants/dessert stores to sell their products online.
 
-There are two types of application users: *admin* and *visitors*. Admins are able to add/edit/delete products and categories. visitors are able to log in and add items to their cart to make purchases.  
+
+There are two types of application users: *admins* and *visitors*. Admins are able to add/edit/delete products and categories. Visitors are able to log in and add items to their cart to make purchases.  
 
 ## Table of Contents 
 
@@ -21,9 +22,10 @@ There are two types of application users: *admin* and *visitors*. Admins are abl
 
 
 ## Motivations 
-This is an ecommerce application that provides restaurant/dessert owners online presence and allow visitors to make purchases online.
+This is an e-commerce application that provides restaurant and dessert owners with an online presence and allows visitors to make purchases online.
 
-Since this is an individually developed project, I wanted this application to facilitate at least the basic process of online shopping, which are to provide the retail owners (admins) an online platform to sell their products and for the visitors to make purchases (please note that the payment system is not implemented as this is not a real store).
+
+Since this is an individually developed project, I wanted this application to facilitate at least the basic processes of online shopping, which are to provide the retail owners (admins) with an online platform to sell their products and for the visitors to make purchases (please note that the payment system is not implemented as this is not a real store).
 
 ## Technologies Used
 
@@ -54,7 +56,7 @@ Deployed on AWS EC2: [Homepage](http://3.15.220.133/home)
 ![Cart page](client/public/images/readme/readme-cart.png)
 
 ### Admin page
-Note: for simplicity, the admin page uses the same domain URL as the visitor, but with a different path and it's not displayed on the navigation bar.
+Note: For simplicity, the admin page uses the same domain URL as the visitor, but with a different path, and it's not displayed on the navigation bar.
 ![Admin page](client/public/images/readme/readme-admin.png)
 
 ### Further Development options
