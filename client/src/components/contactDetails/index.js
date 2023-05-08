@@ -1,13 +1,13 @@
 import React from 'react';
 import ContactDetailsExpand from '../contactDetailsExpand';
 const ContactDetails = ({ contactDetails, order }) => {
-    console.log(Object.keys(contactDetails))
-    console.log(order)
+    // console.log(Object.keys(contactDetails))
+    // console.log(order)
     const tempContactObj = {};
     if (order) {
         ['hours', 'address', 'instagram', 'facebook'].reverse().forEach((x) => {
             tempContactObj[x] = contactDetails[x]
-            console.log(tempContactObj)
+            // console.log(tempContactObj)
         })
 
     }
